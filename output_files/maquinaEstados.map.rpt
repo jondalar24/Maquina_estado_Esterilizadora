@@ -1,0 +1,310 @@
+Analysis & Synthesis report for maquinaEstados
+Sun Dec 04 19:22:52 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |maquinaEstados|state
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                             ;
++-----------------------------+--------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Dec 04 19:22:52 2022      ;
+; Quartus II 64-Bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name               ; maquinaEstados                             ;
+; Top-level Entity Name       ; maquinaEstados                             ;
+; Family                      ; MAX V                                      ;
+; Total logic elements        ; 84                                         ;
+; Total pins                  ; 25                                         ;
+; Total virtual pins          ; 0                                          ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
++-----------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; maquinaEstados     ; maquinaEstados     ;
+; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                   ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path            ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; maquinaEstados.vhd               ; yes             ; User VHDL File  ; C:/altera/13.1/Prac1/maquinaEstados.vhd ;         ;
+; contadorMod6.vhd                 ; yes             ; User VHDL File  ; C:/altera/13.1/Prac1/contadorMod6.vhd   ;         ;
+; contadorMod32.vhd                ; yes             ; User VHDL File  ; C:/altera/13.1/Prac1/contadorMod32.vhd  ;         ;
+; contador16bits.vhd               ; yes             ; User VHDL File  ; C:/altera/13.1/Prac1/contador16bits.vhd ;         ;
+; biestableSR.vhd                  ; yes             ; User VHDL File  ; C:/altera/13.1/Prac1/biestableSR.vhd    ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 84    ;
+;     -- Combinational with no register       ; 47    ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 37    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 42    ;
+;     -- 3 input functions                    ; 9     ;
+;     -- 2 input functions                    ; 31    ;
+;     -- 1 input functions                    ; 2     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 65    ;
+;     -- arithmetic mode                      ; 19    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 21    ;
+;     -- asynchronous clear/load mode         ; 13    ;
+;                                             ;       ;
+; Total registers                             ; 37    ;
+; Total logic cells in carry chains           ; 21    ;
+; I/O pins                                    ; 25    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 37    ;
+; Total fan-out                               ; 334   ;
+; Average fan-out                             ; 3.06  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                        ;
++--------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node           ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                             ; Library Name ;
++--------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
+; |maquinaEstados                      ; 84 (58)     ; 37           ; 0          ; 25   ; 0            ; 47 (45)      ; 0 (0)             ; 37 (13)          ; 21 (0)          ; 0 (0)      ; |maquinaEstados                                 ; work         ;
+;    |biestableSR:biestable_2vez|      ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |maquinaEstados|biestableSR:biestable_2vez      ; work         ;
+;    |contador16bits:contador_ticsp|   ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 16 (16)         ; 0 (0)      ; |maquinaEstados|contador16bits:contador_ticsp   ; work         ;
+;    |contadorMod32:contador_25ciclos| ; 5 (5)       ; 5            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 5 (5)           ; 0 (0)      ; |maquinaEstados|contadorMod32:contador_25ciclos ; work         ;
+;    |contadorMod6:contador_temph|     ; 4 (4)       ; 3            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |maquinaEstados|contadorMod6:contador_temph     ; work         ;
++--------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |maquinaEstados|state                                                                                                                                                               ;
++----------------+---------------+--------------+---------------+--------------+----------+------------+----------+------------+----------+------------+----------------+------------+----------------+
+; Name           ; state.sec_vez ; state.valido ; state.testing ; state.alarma ; state.w3 ; state.str3 ; state.w2 ; state.str2 ; state.w1 ; state.str1 ; state.starting ; state.w_bs ; state.stand_by ;
++----------------+---------------+--------------+---------------+--------------+----------+------------+----------+------------+----------+------------+----------------+------------+----------------+
+; state.stand_by ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 0              ;
+; state.w_bs     ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 1          ; 1              ;
+; state.starting ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 1              ; 0          ; 1              ;
+; state.str1     ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 1          ; 0              ; 0          ; 1              ;
+; state.w1       ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 1        ; 0          ; 0              ; 0          ; 1              ;
+; state.str2     ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 1          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.w2       ; 0             ; 0            ; 0             ; 0            ; 0        ; 0          ; 1        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.str3     ; 0             ; 0            ; 0             ; 0            ; 0        ; 1          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.w3       ; 0             ; 0            ; 0             ; 0            ; 1        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.alarma   ; 0             ; 0            ; 0             ; 1            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.testing  ; 0             ; 0            ; 1             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.valido   ; 0             ; 1            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
+; state.sec_vez  ; 1             ; 0            ; 0             ; 0            ; 0        ; 0          ; 0        ; 0          ; 0        ; 0          ; 0              ; 0          ; 1              ;
++----------------+---------------+--------------+---------------+--------------+----------+------------+----------+------------+----------+------------+----------------+------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; biestableSR:biestable_2vez|Q                       ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 37    ;
+; Number of registers using Synchronous Clear  ; 21    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 13    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |maquinaEstados|contadorMod6:contador_temph|count_int[2] ;
+; 18:1               ; 5 bits    ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; No         ; |maquinaEstados|Selector3                                ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; No         ; |maquinaEstados|Selector12                               ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; No         ; |maquinaEstados|Selector7                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun Dec 04 19:22:51 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off maquinaEstados -c maquinaEstados
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file maquinaestados.vhd
+    Info (12022): Found design unit 1: maquinaEstados-arq_chemical_test
+    Info (12023): Found entity 1: maquinaEstados
+Info (12021): Found 2 design units, including 1 entities, in source file contadormod6.vhd
+    Info (12022): Found design unit 1: contadorMod6-Behavioral
+    Info (12023): Found entity 1: contadorMod6
+Info (12021): Found 2 design units, including 1 entities, in source file contadormod32.vhd
+    Info (12022): Found design unit 1: contadorMod32-Behavioral
+    Info (12023): Found entity 1: contadorMod32
+Info (12021): Found 2 design units, including 1 entities, in source file contador16bits.vhd
+    Info (12022): Found design unit 1: contador16bits-Behavioral
+    Info (12023): Found entity 1: contador16bits
+Info (12021): Found 2 design units, including 1 entities, in source file biestablesr.vhd
+    Info (12022): Found design unit 1: biestableSR-Behavioral
+    Info (12023): Found entity 1: biestableSR
+Info (12127): Elaborating entity "maquinaEstados" for the top level hierarchy
+Info (12128): Elaborating entity "contadorMod6" for hierarchy "contadorMod6:contador_temph"
+Info (12128): Elaborating entity "contadorMod32" for hierarchy "contadorMod32:contador_25ciclos"
+Info (12128): Elaborating entity "contador16bits" for hierarchy "contador16bits:contador_ticsp"
+Info (12128): Elaborating entity "biestableSR" for hierarchy "biestableSR:biestable_2vez"
+Warning (10631): VHDL Process Statement warning at biestableSR.vhd(12): inferring latch(es) for signal or variable "Q", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "Q" at biestableSR.vhd(12)
+Info (21057): Implemented 109 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 84 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4651 megabytes
+    Info: Processing ended: Sun Dec 04 19:22:52 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

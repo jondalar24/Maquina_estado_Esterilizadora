@@ -1,0 +1,250 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.Numeric_STD.all;
+
+entity maquinaEstados is
+  port(
+   --Entradas
+   temp_p,temp_h :  in  STD_LOGIC; 
+	start,clk, reset: in  STD_LOGIC;
+	tics_p: in STD_LOGIC_VECTOR(15 DOWNTO 0);
+	--Salidas
+   test,sterilized,valid,alarm: out STD_LOGIC
+  ); 
+end entity maquinaEstados;
+
+architecture arq_chemical_test of maquinaEstados is    
+  --Posibles estados:
+	type estados is (stand_by,w_bs,starting,str1,w1,str2,w2,str3,w3,alarma,testing,valido,sec_vez);
+  
+  --state management:
+	signal state, next_state: estados; 
+	
+	--interacción con componentes:
+	signal reset_cont_temph, reset_cont_25cilos, reset_cont_ticsp, S_biestable, R_biestable, Q_biestable : std_logic;
+
+	signal cont_temph : std_logic_vector(2 downto 0);
+	signal cont_25cilos : std_logic_vector(4 downto 0);
+	signal cont_ticsp : std_logic_vector(15 downto 0);	
+	
+	begin	
+		transiciones: process(reset,clk,state,temp_p,temp_h,start,tics_p,Q_biestable,cont_temph,cont_25cilos,cont_ticsp)
+		begin
+   	   next_state<=state;
+			case state is
+				when stand_by=>
+					if start='1' then
+						next_state<=w_bs;
+					end if;
+				when w_bs=>
+					if start='0' then
+						next_state<=starting;
+					end if;
+				when starting=>
+					if temp_h='1' then
+						next_state<=str1;
+					end if;
+				when str1=>
+					if temp_h='0' then
+						if cont_temph="101" then --no puede pasar de 5
+							next_state<=w1;
+						else
+							next_state<=starting;
+						end if;
+					end if;
+				when w1=>
+					if temp_h='1' then
+						next_state<=str2;
+					elsif cont_25cilos>="11001" then -- >=25
+						next_state<=alarma;
+					end if;
+				when str2=>
+					if temp_h='0' then
+						if cont_temph="101" then --no puede pasar de 5
+							next_state<=w2;
+						else
+							next_state<=w1;
+						end if;
+					end if;
+				when w2=>
+					if temp_h='1' then
+						next_state<=str3;
+					elsif cont_25cilos>="11001" then -- >=25
+						next_state<=alarma;
+					end if;
+				when str3=>
+					if temp_h='0' then
+						if cont_temph="101" then --no puede pasar de 5
+							next_state<=w3;
+						else
+							next_state<=w2;
+						end if;
+					end if;
+				when w3=>
+					if temp_p='1' then
+						next_state<=testing;
+					end if;
+				when alarma=>
+					-- Esperamos reset
+				when testing=>
+					if cont_ticsp=tics_p then
+						next_state<=valido;
+					elsif temp_p='0' then
+						if Q_biestable='0' then --1r intento
+							next_state<=sec_vez;
+						else --2o intento
+							next_state<=alarma;
+						end if;
+					end if;
+				when valido=>
+					--El reset del sistema nos llevará a stand_by
+				when sec_vez=>
+					next_state<=starting;
+			end case;
+		end process transiciones;
+	
+		Registro_estado:process (clk,reset,next_state)       
+  	   begin
+			if reset='1' then
+				state<=stand_by;
+			elsif clk'event and clk='1' then
+				state<=next_state;
+			end if;
+		end process Registro_estado;
+	 
+	 Salidas: process(state)
+	begin
+		case state is
+			when stand_by=>
+				sterilized <='0';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '1';
+			when w_bs=>
+				sterilized <='0';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when starting=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when str1=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '0';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when w1=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '0';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when str2=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '0';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when w2=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '0';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when str3=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '0';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when w3=>
+				sterilized <='1';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when alarma=>
+				sterilized <='0';
+				valid <='0';
+				test <='0';
+				alarm <='1';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when testing=>
+				sterilized <='0';
+				valid <='0';
+				test <='1';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '0';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when valido=>
+				sterilized <='0';
+				valid <='1';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '0';
+				R_biestable <= '0';
+			when sec_vez=>
+				sterilized <='0';
+				valid <='0';
+				test <='0';
+				alarm <='0';
+				reset_cont_temph <= '1';
+				reset_cont_25cilos <= '1';
+				reset_cont_ticsp <= '1';
+				S_biestable <= '1';
+				R_biestable <= '0';
+		end case;
+	end process Salidas;
+end architecture arq_chemical_test;

@@ -1,0 +1,198 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.1\Prac1\simulation\modelsim
+Ebiestablesr
+Z1 w1670156486
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\altera\13.1\Prac1\simulation\modelsim
+Z7 8C:/altera/13.1/Prac1/biestableSR.vhd
+Z8 FC:/altera/13.1/Prac1/biestableSR.vhd
+l0
+L5
+V5VHGdc=?g=4C2=dgdS0iM3
+!s100 h6:``8FN7BiY08fBC1@da2
+Z9 OV;C;10.1d;51
+31
+!i10b 1
+Z10 !s108 1670165379.858000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.1/Prac1/biestableSR.vhd|
+Z12 !s107 C:/altera/13.1/Prac1/biestableSR.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 11 biestablesr 0 22 5VHGdc=?g=4C2=dgdS0iM3
+l11
+L10
+VKg9H2:io;YRfnKSLU4_Jz1
+!s100 aVWIaB>F]nj?8APzU^cE:0
+R9
+31
+!i10b 1
+R10
+R11
+R12
+R13
+R14
+Econtador16bits
+Z15 w1670156390
+R2
+R3
+R4
+R5
+R6
+Z16 8C:/altera/13.1/Prac1/contador16bits.vhd
+Z17 FC:/altera/13.1/Prac1/contador16bits.vhd
+l0
+L5
+V=iBY@mhNXYf0jiA2VeGcj2
+R9
+31
+Z18 !s108 1670165379.748000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.1/Prac1/contador16bits.vhd|
+Z20 !s107 C:/altera/13.1/Prac1/contador16bits.vhd|
+R13
+R14
+!s100 Y^=o?Y:SFa=[3IF^3L@ON3
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 14 contador16bits 0 22 =iBY@mhNXYf0jiA2VeGcj2
+l13
+L11
+VOYL;0_51lm8=C@:e2L1Yg1
+R9
+31
+R18
+R19
+R20
+R13
+R14
+!s100 ZkX`=0[3QQPbZgL^KETEE0
+!i10b 1
+Econtadormod32
+Z21 w1670156448
+R2
+R3
+R4
+R5
+R6
+Z22 8C:/altera/13.1/Prac1/contadorMod32.vhd
+Z23 FC:/altera/13.1/Prac1/contadorMod32.vhd
+l0
+L5
+VcXhWClgTa:d3<HiV^f;R93
+R9
+31
+Z24 !s108 1670165379.670000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.1/Prac1/contadorMod32.vhd|
+Z26 !s107 C:/altera/13.1/Prac1/contadorMod32.vhd|
+R13
+R14
+!s100 9GPL9<Ik^1HCNm4N3QbSn0
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 13 contadormod32 0 22 cXhWClgTa:d3<HiV^f;R93
+l13
+L11
+VhegFfj=BLa]XQfNZgHQXe1
+R9
+31
+R24
+R25
+R26
+R13
+R14
+!s100 T57VLEmFd1ahc3bNNLFOI1
+!i10b 1
+Econtadormod6
+Z27 w1670156445
+R2
+R3
+R4
+R5
+R6
+Z28 8C:/altera/13.1/Prac1/contadorMod6.vhd
+Z29 FC:/altera/13.1/Prac1/contadorMod6.vhd
+l0
+L5
+Vigi]5cNfgTofI^CDFdGzN1
+R9
+31
+Z30 !s108 1670165379.577000
+Z31 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.1/Prac1/contadorMod6.vhd|
+Z32 !s107 C:/altera/13.1/Prac1/contadorMod6.vhd|
+R13
+R14
+!s100 5aIYPVN_PjU;fTE[i7MKA3
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 12 contadormod6 0 22 igi]5cNfgTofI^CDFdGzN1
+l13
+L11
+Vmb<SX[==j64`8>G:zUn232
+R9
+31
+R30
+R31
+R32
+R13
+R14
+!s100 @^RYkTQVCWJcmRO^:RB6n2
+!i10b 1
+Emaquinaestados
+Z33 w1670157694
+Z34 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R4
+R5
+R6
+Z35 8C:/altera/13.1/Prac1/maquinaEstados.vhd
+Z36 FC:/altera/13.1/Prac1/maquinaEstados.vhd
+l0
+L5
+V`JA94Zk4CWRSmXROMg:A=0
+R9
+31
+Z37 !s108 1670165379.483000
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.1/Prac1/maquinaEstados.vhd|
+Z39 !s107 C:/altera/13.1/Prac1/maquinaEstados.vhd|
+R13
+R14
+!s100 5[[RY2`GXH1SUU`V@Nn^B3
+!i10b 1
+Aarq_chemical_test
+R34
+R4
+R5
+DEx4 work 14 maquinaestados 0 22 `JA94Zk4CWRSmXROMg:A=0
+l54
+L16
+Vf=9Cjdi5o]fLZolAoE9Ma0
+R9
+31
+R37
+R38
+R39
+R13
+R14
+!s100 n[zK5CZl<o^LmfnUM?6aL2
+!i10b 1
